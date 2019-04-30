@@ -4,7 +4,7 @@ pipeline {
         stage('One') {
                 steps {
                         echo 'Demo pipeline job'
-			git url: 'https://github.com/shishaktkumar/calculator.git'
+			git url: 'git@github.com:shishaktkumar/calculator.git'
                 }
         }
 	    stage('Two'){
