@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('One') {
                 steps {
-                        echo 'Hi, this is Zulaikha from edureka'
+                        echo 'Demo pipeline job'
 			git url: 'https://github.com/shishaktkumar/calculator.git'
                 }
         }
