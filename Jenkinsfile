@@ -4,6 +4,7 @@ pipeline {
         stage('One') {
                 steps {
                         echo 'Hi, this is Zulaikha from edureka'
+			git https://github.com/shishaktkumar/calculator.git
 			
                 }
         }
