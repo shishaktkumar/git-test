@@ -4,7 +4,7 @@ pipeline {
         stage('One') {
                 steps {
                         echo 'Hi, this is Zulaikha from edureka'
-			git url 'https://github.com/shishaktkumar/calculator.git'
+			//git url 'https://github.com/shishaktkumar/calculator.git'
                 }
         }
 	    stage('Two'){
