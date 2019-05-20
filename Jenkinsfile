@@ -4,6 +4,7 @@ pipeline {
         		label 'master'
         		customWorkspace '/var/lib/jenkins'
     		}
+	}
     stages {
         stage('One') {
                 steps {
