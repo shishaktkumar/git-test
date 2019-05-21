@@ -1,7 +1,7 @@
 pipeline {
     agent {
 		node {
-        		label 'SONAR_NODE'
+        		label 'PYLINT_NODE'
         		customWorkspace '/var/lib/jenkins'
     		}
 	}
