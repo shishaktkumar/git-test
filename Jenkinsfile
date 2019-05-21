@@ -1,10 +1,5 @@
 pipeline {
-	agent {
-		node {
-        		label 'PYLINT_NODE'
-        		customWorkspace '/var/lib/jenkins'
-    		}
-	}
+	agent any
     stages {
         stage('One') {
                 steps {
