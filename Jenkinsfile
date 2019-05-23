@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('One') {
                 steps {
-                        echo 'Demo pipeline job'
-			git url: 'https://github.com/shishaktkumar/calculator.git'
+                        //echo 'Demo pipeline job'
+			//git url: 'https://github.com/shishaktkumar/calculator.git'
+			checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Demo']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/shishaktkumar/calculator.git']]])
                 }
         }
 	    stage('Two'){
