@@ -6,7 +6,7 @@ pipeline {
     		}
 	}
     stages {
-        stage('One') {
+        stage('Control_Panel_Fetch') {
                 steps {
           		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Demo']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/shishaktkumar/calculator.git']]])
 			sh 'pwd'
