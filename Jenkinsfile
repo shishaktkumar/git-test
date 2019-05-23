@@ -95,5 +95,28 @@ pipeline {
 			'''
         }
     }
+	    stage('Copying_Artifacts'){
+		    steps {
+			    sh '''
+			    	## Copying artifacts to the destination
+				cd $WORKSPACE/Control_Panel
+				cp -rf message-viewer/target/message-viewer-0.3.war package/binaries/services/message-viewer.war
+				cp -rf event-inspector/target/event-inspector-0.1.war package/binaries/services/event-inspector.war
+				cp -fr ui/dist/ package/binaries/ui/
+				#cp -rf /tmp/gen.conf .
+				#cd $WORKSPACE/Control_Panel/package/binaries/scripts/ ; bash stop.sh; bash start.sh
+				#cd $WORKSPACE
+				#chmod 777 Control_Panel
+				#cd $WORKSPACE/Control_Panel
+				#docker run --network=host -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-baseline.py -t http://$(ip -f inet -o addr show docker0 | awk '{print $4}' | cut -d '/' -f 1):8080 -c gen.conf -r vulnerability_report.html
+				#cp vulnerability_report.html reports/ 
+				cd $WORKSPACE/Control_Panel
+				mv reports package/
+				mkdir artifacts
+				cd $WORKSPACE/Control_Panel/package
+				tar -czf control-panel.tar.gz * --exclude "finalzip.sh" --exclude "reports/email-content.txt" --exclude "reports/server-report.sh"
+				mv control-panel.tar.gz ../artifacts/
+				'''
+		    }
 }
 
